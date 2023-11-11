@@ -1,20 +1,18 @@
 #!/usr/bin/python3
 """
-Fabric script that deploys an archive to your web servers.
+distributes an archive to your web servers
 """
 
 from datetime import datetime
 from fabric.api import *
 import os
 
-env.hosts = ["34.224.17.30", "52.91.101.235"]
+env.hosts = ["34.229.189.163","35.175.128.242"]
 env.user = "ubuntu"
 
 
 def do_pack():
-    """
-        If the archive is generated smoothly, return the path to the archive.
-    """
+    """Generates an tgz archive from web_static folder"""
 
     local("mkdir -p versions")
     date = datetime.now().strftime("%Y%m%d%H%M%S")
@@ -29,7 +27,7 @@ def do_pack():
 
 def do_deploy(archive_path):
     """
-        Distribute archive.
+       distributes an archive to your web servers
     """
     if os.path.exists(archive_path):
         archived_file = archive_path[9:]
