@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-""" Function that deploys """
+""" deploys """
 from fabric.api import *
 
 
-env.hosts = ['34.224.17.30', '52.91.101.235']
+env.hosts = ["34.229.189.163","35.175.128.242"]
 env.user = "ubuntu"
 
 
 def do_clean(number=0):
-    """ CLEANS """
+    """ clean up"""
 
     number = int(number)
 
